@@ -9,7 +9,80 @@
     "b",
     "a"
   ],
-  "myCourses": [],
+  "myCourses": [
+    {
+      "courseCode": "IK099G",
+      "grade": "B"
+    },
+    {
+      "courseCode": "IK006G",
+      "grade": "A"
+    },
+    {
+      "courseCode": "IK038G",
+      "grade": "C"
+    },
+    {
+      "courseCode": "IK101G",
+      "grade": "A"
+    },
+    {
+      "courseCode": "IK106G",
+      "grade": "D"
+    },
+    {
+      "courseCode": "IK102G",
+      "grade": "B"
+    },
+    {
+      "courseCode": "IK093G",
+      "grade": "B"
+    },
+    {
+      "courseCode": "IK086G",
+      "grade": "C"
+    },
+    {
+      "courseCode": "IK073G",
+      "grade": "A"
+    },
+    {
+      "courseCode": "IK080G",
+      "grade": "D"
+    },
+    {
+      "courseCode": "IK110G",
+      "grade": "A"
+    },
+    {
+      "courseCode": "IK108G",
+      "grade": "E"
+    },
+    {
+      "courseCode": "IK109G",
+      "grade": "B"
+    },
+    {
+      "courseCode": "IK098G",
+      "grade": "C"
+    },
+    {
+      "courseCode": "DT187G",
+      "grade": "-"
+    },
+    {
+      "courseCode": "DT179G",
+      "grade": "-"
+    },
+    {
+      "courseCode": "DT031G",
+      "grade": "-"
+    },
+    {
+      "courseCode": "DT190G",
+      "grade": "-"
+    }
+  ],
   "courses": [
     {
       "courseCode": "AK001A",

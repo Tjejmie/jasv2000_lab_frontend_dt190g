@@ -66,7 +66,10 @@ export class JSONDataSource extends DataSource {
 	*/
 	async getMyCourses() {
 		// TODO: In lab 0, implement according to requirements
-		throw Error("Not implemented!");
+
+		return this.getData()
+		.then(json => json.myCourses)
+		
 	}
 
 	/**
