@@ -153,6 +153,18 @@ function createTableForMyCourses(courses, table) {
 * @param selectedGrade the grade to be the selected option in the selectElement
 */
 function createGradeOptions(selectElement, grades, selectedGrade) {
+	
+	
+	for (var i = 0; i < grades.length; i++) {
+		
+		var selectedGrade = document.createElement("option");
+		selectedGrade.value = grades[i];
+		selectedGrade.text = grades[i].toUpperCase();
+		selectElement.appendChild(selectedGrade);
+	}
+	
+	
+
 	// TODO: In lab 0, implement according to requirements
 }
 
