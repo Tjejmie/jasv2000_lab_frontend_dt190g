@@ -59,27 +59,42 @@ export class JSONDataSource extends DataSource {
 			course => course.courseCode.toLowerCase() === courseCode.toLowerCase() // return where course code match
 		) || {}); // or return {} if no course with that course code exists
 	}
+	
 
 	/**
-	* Get all My courses from the data source.
-	* @return a Promise that resolves to an array of My courses (a Miun course with grade included)
+	* Get all My courses from the JSON file.
+	* @return a Promise that resolves to an array of My course objects where
+	* each My course also have all properties from the corresponding Miun course
 	*/
+	
 	async getMyCourses() {
-		// TODO: In lab 0, implement according to requirements
 
-		return this.getData()
-		.then(json => json.myCourses)
+		const data = await this.getData()
+		const arrayWithMyCourses = data.myCourses;
+		return this.#addCourseData(arrayWithMyCourses)
+	
 		
+		// TODO: In lab 0, implement according to requirements
+		// In lab 0 a My course object only contains the properties courseCode and grade.
+		// For each My course object we need to assign the properties from the 
+		// corresponding Miun course.
 	}
 
 	/**
 	* Get the My course with the specified course code from the JSON file.
 	* @param courseCode the course code of the course to get
-	* @return a Promise that resolves to a My course object or {} if the course doesn't exist
+	* @return a Promise that resolves to a My course objects that also has
+	* all properties from the corresponding Miun course or {} if the My course doesn't exist
 	*/
 	async getMyCourse(courseCode) {
+		
+		
+
 		// TODO: In lab 0, implement according to requirements
-		throw Error("Not implemented!");
+
+		// In lab 0 a My course object only contains the properties courseCode and grade.
+		// Before returning the My course object, assign all properties from the 
+		// corresponding Miun course.
 	}
 
 	/**
@@ -134,6 +149,8 @@ export class JSONDataSource extends DataSource {
 	* @return an array of My courses with Miun course data
 	*/
 	async #addCourseData(myCourses) {
+		
+		
 		// Use Promise.all() in order to wait for the resolval of all promises from using map
 		return Promise.all(myCourses.map(myCourse => this.#setCourseData(myCourse)));
 	}
