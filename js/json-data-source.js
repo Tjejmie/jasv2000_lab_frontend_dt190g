@@ -69,10 +69,11 @@ export class JSONDataSource extends DataSource {
 	
 	async getMyCourses() {
 
+
+
 		const data = await this.getData()
 		const arrayWithMyCourses = data.myCourses;
 		return this.#addCourseData(arrayWithMyCourses)
-	
 		
 		// TODO: In lab 0, implement according to requirements
 		// In lab 0 a My course object only contains the properties courseCode and grade.
@@ -88,7 +89,12 @@ export class JSONDataSource extends DataSource {
 	*/
 	async getMyCourse(courseCode) {
 		
-		
+		const sdf = this.#setCourseData(courseCode)
+		console.log(sdf)
+		return this.getMyCourses()
+		.then(myCourses => myCourses.find(
+			myCourse => myCourse.courseCode.toLowerCase() === courseCode.toLowerCase() // return where course code match
+		) || {});
 
 		// TODO: In lab 0, implement according to requirements
 
