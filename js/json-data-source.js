@@ -54,6 +54,7 @@ export class JSONDataSource extends DataSource {
 	* @return a Promise that resolves to a course object or {} if the course doesn't exist
 	*/
 	async getCourse(courseCode) {
+
 		return this.getCourses()
 		.then(courses => courses.find(
 			course => course.courseCode.toLowerCase() === courseCode.toLowerCase() // return where course code match
@@ -66,19 +67,9 @@ export class JSONDataSource extends DataSource {
 	* @return a Promise that resolves to an array of My course objects where
 	* each My course also have all properties from the corresponding Miun course
 	*/
-	
 	async getMyCourses() {
-
-
-
-		const data = await this.getData()
-		const arrayWithMyCourses = data.myCourses;
-		return this.#addCourseData(arrayWithMyCourses)
-		
-		// TODO: In lab 0, implement according to requirements
-		// In lab 0 a My course object only contains the properties courseCode and grade.
-		// For each My course object we need to assign the properties from the 
-		// corresponding Miun course.
+		return this.getData()
+		.then(json => this.#addCourseData(json.myCourses));
 	}
 
 	/**
@@ -88,19 +79,10 @@ export class JSONDataSource extends DataSource {
 	* all properties from the corresponding Miun course or {} if the My course doesn't exist
 	*/
 	async getMyCourse(courseCode) {
-		
-		const sdf = this.#setCourseData(courseCode)
-		console.log(sdf)
 		return this.getMyCourses()
 		.then(myCourses => myCourses.find(
-			myCourse => myCourse.courseCode.toLowerCase() === courseCode.toLowerCase() // return where course code match
-		) || {});
-
-		// TODO: In lab 0, implement according to requirements
-
-		// In lab 0 a My course object only contains the properties courseCode and grade.
-		// Before returning the My course object, assign all properties from the 
-		// corresponding Miun course.
+			this.#setCourseData(myCourse => myCourse.courseCode.toLowerCase() === courseCode.toLowerCase()) // return where course code match
+		) || {}); // or {}
 	}
 
 	/**

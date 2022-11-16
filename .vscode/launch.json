@@ -11,7 +11,9 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\js\\json-data-source.js"
+            "program": "${workspaceFolder}\\js\\json-data-source.js",
+            
+            
         }
         
     ]

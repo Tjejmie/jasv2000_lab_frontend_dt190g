@@ -2,7 +2,7 @@ import { Atlas } from './atlas.js';
 import { JSONDataSource } from './json-data-source.js';
 
 /** The data source for our Atlas */
-const dataSource = new JSONDataSource("../miun-db.json");
+const dataSource = new JSONDataSource("miun-db.json");
 
 /** The Atlas instance */
 const atlas = new Atlas(dataSource);
@@ -154,7 +154,6 @@ function createTableForMyCourses(courses, table) {
 */
 function createGradeOptions(selectElement, grades, selectedGrade) {
 	
-	
 	for (const val of grades)
     {
 		var option = document.createElement("option");
@@ -163,7 +162,6 @@ function createGradeOptions(selectElement, grades, selectedGrade) {
 		selectElement.value = selectedGrade;
     }
 	
-	// TODO: In lab 0, implement according to requirements
 }
 
 /**
