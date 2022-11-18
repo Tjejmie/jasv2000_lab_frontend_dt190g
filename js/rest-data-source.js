@@ -15,36 +15,43 @@ export class RESTDataSource extends DataSource {
 	}
 
 	/**
-	 * Get data from the specified endpoint.
-	 * @param endpoint default an empty string ''
-	 * @param method default GET
-	 * @param body default an empty body {}
-	 * @return a Promise that resolves to the value of the given endpoint
-	 */
+ * Get data from the specified endpoint. The endpoint will 
+ * be appended to the base URL by the superclass DataSource. Example: 
+ * If the base URL is http://localhost:3000 and the endpoint is /api/courses, 
+ * the HTTP request will be sent to http://localhost:3000/api/courses.
+ * 
+ * For any HTTP method but GET, the specified body will be sent with 
+ * the request.
+ * @param endpoint the endpoint to use, default an empty string ''
+ * @param method the HTTP request method to use, default GET
+ * @param body the body to be sent with the request, default an empty body {}
+ * @return a Promise that resolves with the result of parsing the response 
+ * body text as JSON.
+ */
 	 async getData(endpoint = '', method = 'GET', body = {}) {
-		return super.getData(endpoint, method, body);
-		// TODO: In lab 1, make changes (if necessary)
-	}
+		return super.getData(endpoint, method, body) // getData returns a Promise<Response>
+		.then(resp => resp.json()); // parses the Response body text as JSON
 
-    /**
+		
+	}
+	
+	/**
 	* Get all Miun courses from the REST API.
 	* @return a Promise that resolves to an array of courses
 	*/
 	async getCourses() {
-		return this.getData()
-		.then(json => json.courses); // only return the array with Miun courses from the json
+		// Get data from the endpoint api/courses/
+		return this.getData('api/courses');
 	}
-
+	
 	/**
 	* Get the Miun course with the specified course code from the REST API.
 	* @param courseCode the course code of the course to get
 	* @return a Promise that resolves to a course object or {} if the course doesn't exist
 	*/
 	async getCourse(courseCode) {
-		return this.getCourses()
-		.then(courses => courses.find(
-			course => course.courseCode.toLowerCase() === courseCode.toLowerCase() // return where course code match
-		) || {}); // or return {} if no course with that course code exists
+		// TODO: In lab 1, implement according to requirements
+		throw Error("Not implemented!");
 	}
 
 	/**
@@ -53,6 +60,7 @@ export class RESTDataSource extends DataSource {
 	*/
 	async getMyCourses() {
 		// TODO: In lab 1, implement according to requirements
+		throw Error("Not implemented!");
 	}
 
 	/**
