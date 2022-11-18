@@ -1,8 +1,8 @@
 import { Atlas } from './atlas.js';
-import { JSONDataSource } from './json-data-source.js';
+import { RESTDataSource } from './rest-data-source.js';
 
 /** The data source for our Atlas */
-const dataSource = new JSONDataSource("miun-db.json");
+const dataSource = new RESTDataSource("http://localhost:3000/");
 
 /** The Atlas instance */
 const atlas = new Atlas(dataSource);
