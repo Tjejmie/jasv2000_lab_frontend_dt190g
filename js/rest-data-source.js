@@ -41,7 +41,8 @@ export class RESTDataSource extends DataSource {
 	*/
 	async getCourses() {
 		// Get data from the endpoint api/courses/
-		return this.getData('api/courses');
+
+		return this.getData('api/courses/');
 	}
 	
 	/**
@@ -50,8 +51,8 @@ export class RESTDataSource extends DataSource {
 	* @return a Promise that resolves to a course object or {} if the course doesn't exist
 	*/
 	async getCourse(courseCode) {
-		// TODO: In lab 1, implement according to requirements
-		throw Error("Not implemented!");
+
+		return this.getData('api/courses/'+courseCode) || {};
 	}
 
 	/**
@@ -59,8 +60,8 @@ export class RESTDataSource extends DataSource {
 	* @return a Promise that resolves to an array of My courses (a Miun course with grade included)
 	*/
 	async getMyCourses() {
-		// TODO: In lab 1, implement according to requirements
-		throw Error("Not implemented!");
+		return this.getData('api/courses/my/');
+		
 	}
 
 	/**
@@ -69,8 +70,7 @@ export class RESTDataSource extends DataSource {
 	* @return a Promise that resolves to a My course object or {} if the course doesn't exist
 	*/
 	async getMyCourse(courseCode) {
-		// TODO: In lab 1, implement according to requirements
-		throw Error("Not implemented!");
+		return this.getData('api/courses/my/'+courseCode) || {};
 	}
 
 	/**
@@ -81,8 +81,8 @@ export class RESTDataSource extends DataSource {
 	*         message explaining why the course couldn't be added
 	*/
 	async addMyCourse(courseCode, grade) {
-		// TODO: In lab 1, implement according to requirements
-		throw Error("Not implemented!");
+
+		return this.getData('api/courses/my/', 'POST', {courseCode, grade})
 	}
 
 	/**
@@ -92,8 +92,7 @@ export class RESTDataSource extends DataSource {
 	*         message explaining why the course couldn't be deleted
 	*/
 	async deleteMyCourse(courseCode) {
-		// TODO: In lab 1, implement according to requirements
-		throw Error("Not implemented!");
+		return this.getData('api/courses/my/:'+{courseCode}, 'DELETE')
 	}
 
 	/**
@@ -104,8 +103,7 @@ export class RESTDataSource extends DataSource {
 	*         message explaining why the course's grade couldn't be updated
 	*/
 	updateMyCourse(courseCode, grade) {
-		// TODO: In lab 1, implement according to requirements
-		throw Error("Not implemented!");
+		return this.getData('api/courses/my/:'+{courseCode}, 'PUT', {grade})
 	}
 
 	/**
@@ -113,7 +111,6 @@ export class RESTDataSource extends DataSource {
 	* @return a Promise that resolves to an array of grades
 	*/
 	async getGrades() {
-		// TODO: In lab 1, implement according to requirements
-		throw Error("Not implemented!");
+		return this.getData('api/grades');
 	}
 }
