@@ -102,7 +102,7 @@ function createTableForMiunCourses(courses, table) {
 		createTd(course.points, tr);
 		createTd(course.institutionCode, tr,
 			element => element.classList.add("center"));
-
+		createTd(course.subject, tr);
 		// Add the row to the table
 		table.appendChild(tr);
 	});
