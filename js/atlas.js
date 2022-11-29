@@ -80,8 +80,6 @@
 	*         message explaining why the course's grade couldn't be updated
 	*/
 	updateMyCourse(courseCode, grade) {
-		console.log(courseCode)
-		console.log(grade)
 		return this.#dataSource.updateMyCourse(courseCode, grade);
 	}
 
