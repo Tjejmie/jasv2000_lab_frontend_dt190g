@@ -71,3 +71,25 @@ tbody > tr:nth-child(even) {
 .course-name {
   width: 70%;
 }
+
+.button.delete {
+  color: red;
+  vertical-align: middle;
+}
+.button {
+
+  border-radius: 4px;
+  background-color: inherit;
+  cursor: pointer;
+  padding: 3px 10px;
+}
+
+/* On mouse-over */
+.button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* On mouse-click */
+.button:active {
+  background: rgba(0, 0, 0, 0.3);
+}

@@ -30,13 +30,23 @@
 				<label>Sök kurs: <input type="text" id="search" placeholder="kurskod eller namn...">
 				</label>
 			</div>
-
+			<div class ="add-course">
+				<form class="add-course-form">
+					<label>Lägg till kurs: </label>
+					<input type="text" id="coursecode" placeholder="Kurskod">
+					<select id="grades"></select>
+					<span class="button add" id="addCourse">lägg till</span> <!-- available in the JS as addUser -->
+				</form>
+		
+				
+			</div>
 			<table>
 				<thead>
 					<tr>
 						<td>Kurskod</td>
 						<td class="course-name">Namn</td>
 						<td class="center">Mitt betyg</td>
+						<td></td>
 					</tr>
 				</thead>
 				<tbody id="courses_table">
@@ -47,7 +57,7 @@
 		<footer>
 			<p class="center">
 				Denna sida läser data från filen
-				<a href="miun-db.json" target="_blank">miun-db.json</a>.
+				<a href="https://jasv2000-lab1-backend-dt190g.azurewebsites.net/api/courses/my" target="_blank">azurewebsites.net/api/courses/my</a>.
 			</p>
 		</footer>
 	</body>
