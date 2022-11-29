@@ -68,6 +68,7 @@
 	*         message explaining why the course couldn't be deleted
 	*/
 	async deleteMyCourse(courseCode) {
+
 		return this.#dataSource.deleteMyCourse(courseCode);
 	}
 
@@ -79,6 +80,8 @@
 	*         message explaining why the course's grade couldn't be updated
 	*/
 	updateMyCourse(courseCode, grade) {
+		console.log(courseCode)
+		console.log(grade)
 		return this.#dataSource.updateMyCourse(courseCode, grade);
 	}
 

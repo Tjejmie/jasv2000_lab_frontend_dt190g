@@ -31,8 +31,6 @@ export class RESTDataSource extends DataSource {
 	 async getData(endpoint = '', method = 'GET', body = {}) {
 		return super.getData(endpoint, method, body) // getData returns a Promise<Response>
 		.then(resp => resp.json()); // parses the Response body text as JSON
-
-		
 	}
 	
 	/**
@@ -42,7 +40,7 @@ export class RESTDataSource extends DataSource {
 	async getCourses() {
 		// Get data from the endpoint api/courses/
 
-		return this.getData('api/courses/');
+		return this.getData('/api/courses/');
 	}
 	
 	/**
@@ -52,7 +50,7 @@ export class RESTDataSource extends DataSource {
 	*/
 	async getCourse(courseCode) {
 
-		return this.getData('api/courses/'+courseCode) || {};
+		return this.getData('/api/courses/'+courseCode) || {};
 	}
 
 	/**
@@ -60,7 +58,7 @@ export class RESTDataSource extends DataSource {
 	* @return a Promise that resolves to an array of My courses (a Miun course with grade included)
 	*/
 	async getMyCourses() {
-		return this.getData('api/courses/my/');
+		return this.getData('/api/courses/my/');
 		
 	}
 
@@ -70,7 +68,7 @@ export class RESTDataSource extends DataSource {
 	* @return a Promise that resolves to a My course object or {} if the course doesn't exist
 	*/
 	async getMyCourse(courseCode) {
-		return this.getData('api/courses/my/'+courseCode) || {};
+		return this.getData('/api/courses/my/'+courseCode) || {};
 	}
 
 	/**
@@ -82,7 +80,7 @@ export class RESTDataSource extends DataSource {
 	*/
 	async addMyCourse(courseCode, grade) {
 
-		return this.getData('api/courses/my/', 'POST', {courseCode, grade})
+		return this.getData('/api/courses/my', 'POST', {courseCode:courseCode, grade:grade})
 		|| console.error(error);
 	}
 
@@ -93,7 +91,7 @@ export class RESTDataSource extends DataSource {
 	*         message explaining why the course couldn't be deleted
 	*/
 	async deleteMyCourse(courseCode) {
-		return this.getData('api/courses/my/:'+{courseCode}, 'DELETE')
+		return this.getData('/api/courses/my/'+courseCode, 'DELETE')
 		|| console.error(error);
 	}
 
@@ -105,7 +103,7 @@ export class RESTDataSource extends DataSource {
 	*         message explaining why the course's grade couldn't be updated
 	*/
 	updateMyCourse(courseCode, grade) {
-		return this.getData('api/courses/my/:'+{courseCode}, 'PUT', {grade})
+		return this.getData('/api/courses/my/'+courseCode, 'PUT', {grade: grade})
 		|| console.error(error);
 	}
 
@@ -114,6 +112,6 @@ export class RESTDataSource extends DataSource {
 	* @return a Promise that resolves to an array of grades
 	*/
 	async getGrades() {
-		return this.getData('api/grades');
+		return this.getData('/api/grades');
 	}
 }
