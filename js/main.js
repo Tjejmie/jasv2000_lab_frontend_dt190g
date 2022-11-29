@@ -169,7 +169,7 @@ function createTableForMyCourses(courses, table) {
 function deleteCourse(courseCode){
 	atlas.deleteMyCourse(courseCode)
 	courses = courses.filter(course => course.courseCode != courseCode)
-	createTableForMiunCourses();
+	createTable();
 }
 
 function addGradeOption(){
@@ -188,7 +188,7 @@ function addCourse(){
 	atlas.addMyCourse(courseCode, grade)
 		.then(course => { 
 			courses.push(course);
-			createTableForMiunCourses();
+			createTable();
 		})
 }
 
