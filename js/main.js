@@ -46,7 +46,8 @@ function starterFunction() {
 
 	// Call searchCourses function on keyup events from the search text input
 	document.getElementById("search").addEventListener("keyup", searchCourses);
-	document.getElementById("addCourse").addEventListener("click", addCourse);
+
+	
 
 	
 	// Get the list of courses from Atlas
@@ -57,7 +58,10 @@ function starterFunction() {
 		createTable(); // create the table with the fetched courses
 	})
 	.catch(error => console.error(`An error occurd when getting courses from Atlas: ${error}`));
-	addGradeOption();
+	
+	if(currentPage == MY_COURSES_PAGE){
+		addGradeOption();
+	}
 }
 
 /**
@@ -93,6 +97,7 @@ function createTable() {
 * @param table the table or the table body to add the rows to
 */
 function createTableForMiunCourses(courses, table) {
+	
 	// For each course create a table row with course data
 	courses.forEach(course => {
 		// Make a table row
@@ -144,10 +149,11 @@ function createTableForMyCourses(courses, table) {
 			deleteButton.innerText = "radera";
 			deleteButton.classList.add("delete-button");
 			deleteButton.addEventListener("click", (_) => deleteCourse(course.courseCode))
+			document.getElementById("addCourse").addEventListener("click", addCourse);
 			// Add each grade as an option in the select element and set
 			// the course grade as the selected grade in the list
 			createGradeOptions(selectElement, grades, course.grade);
-
+			
 
 			selectElement.addEventListener("change", option => {
 				atlas.updateMyCourse(course.courseCode, option.target.value);
