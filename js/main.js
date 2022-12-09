@@ -192,10 +192,7 @@ function addCourse(){
 	const grade = document.getElementById("grades").value;
 
 	atlas.addMyCourse(courseCode, grade)
-		.then(course => { 
-			courses.push(course);
-			createTable();
-		})
+
 }
 
 /**
