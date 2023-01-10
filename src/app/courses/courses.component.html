@@ -4,7 +4,7 @@
     <p>Följande kurser finns att läsa på Mittuniversitetet:</p>
 
     <nav>
-        <a href="my-courses.html">Mina kurser</a>
+        <a (click)="gotoHome()">Mina kurser</a>
     </nav>
 </header>
 
@@ -26,6 +26,19 @@
             </tr>
         </thead>
         <tbody id="courses_table">
+            <ng-container *ngFor="let course of courses">
+                <tr>
+                    <td>{{ course.courseCode }}</td>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.progression }}</td>
+                    <td >{{ course.points }}</td>
+                    <td>{{ course.institutionCode }}</td>
+                    <td >{{ course.subject }}</td>
+                   
+ 
+                </tr>
+
+            </ng-container>
         </tbody>
     </table>
 </main>
