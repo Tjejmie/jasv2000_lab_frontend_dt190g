@@ -1,1 +1,38 @@
-<p>courses works!</p>
+<header>
+    <h1 class="center">Mittuniversitets kursutbud</h1>
+
+    <p>Följande kurser finns att läsa på Mittuniversitetet:</p>
+
+    <nav>
+        <a href="my-courses.html">Mina kurser</a>
+    </nav>
+</header>
+
+<main>
+    <div class="search-container">
+        <label>Sök kurs: <input type="text" id="search" placeholder="kurskod eller namn...">
+        </label>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <td>Kurskod</td>
+                <td class="course-name">Namn</td>
+                <td></td>
+                <td>hp</td>
+                <td>Instutition</td>
+                <td>Ämne</td>
+            </tr>
+        </thead>
+        <tbody id="courses_table">
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p class="center">
+        Denna sida läser data från filen
+        <a href="https://jasv2000-lab2-backend-dt190g.azurewebsites.net/api/courses" target="_blank">azurewebsites.net/api/courses</a>.
+    </p>
+</footer>
