@@ -32,7 +32,24 @@
                 <td></td>
             </tr>
         </thead>
-        <tbody id="courses_table">
+        <tbody id="courses_table" >
+            <tr *ngFor="let myCourse of myCourses">
+                <td>{{myCourse.courseCode}}</td>
+                <td>{{myCourse.name}}</td>
+                <td >
+                    <select #grade (change)="changeGrade(myCourse.courseCode, grade.value.toUpperCase())" > 
+                        <option id="asd" *ngFor="let grade of grades" [selected]="grade ">
+                            {{grade}}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <button (click)="deleteCourse(myCourse.courseCode)" >
+                        Radera
+                    </button>
+                </td>
+
+            </tr>
         </tbody>
     </table>
 </main>

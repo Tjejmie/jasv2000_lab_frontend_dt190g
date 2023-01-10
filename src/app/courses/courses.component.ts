@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // to get data from the route used to show this component
+import { ActivatedRoute } from '@angular/router'; // to get data from the route used to show this component
 import { BackendService } from '../backend.service'; // this component needs our backend service
 import { courses } from '../courses.model'; // this component needs our User interface (model)
 
@@ -12,27 +12,27 @@ export class CoursesComponent implements OnInit {
 
  courses: courses[];
   
- constructor(private backend: BackendService, private route: Router) {
+ constructor(private backend: BackendService, private route: ActivatedRoute) {
 
    this.courses = [];
  }
 
- gotoHome(){
-  this.route.navigate(['/my-courses']);  // define your component where you want to go
-}
+
 
  ngOnInit(): void {
-   this.getCourses();
+    this.backend.getCourses().subscribe(result => {
+    this.courses = result;
+  })
  }
 
 
- getCourses() {
+//  getCourses() {
 
-   this.backend.getCourses()
-     .then(courses => {
+//    this.backend.getCourses()
+//      .then(courses => {
 
-       this.courses = courses;
-     })
-     .catch(error => console.error(`An error occurred getting all users: ${error}`));
-  }
+//        this.courses = courses;
+//      })
+//      .catch(error => console.error(`An error occurred getting all users: ${error}`));
+//   }
 }
