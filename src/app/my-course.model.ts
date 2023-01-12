@@ -1,9 +1,17 @@
 /**
  * Represents all my courses
  */
-export interface myCourses {
-    courseCode : string,
-    grade : string,
-    name : string,
+export interface myCourse {
+  _id: string,
+  courseCode : string,
+  subjectCode: string,
+  level: string,
+  progression: string, 
+  name: string, 
+  points: Number, 
+  institutionCode: string,
+  subject: string, 
+  grade : string
   }
+  
   

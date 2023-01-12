@@ -1,9 +1,10 @@
-
-import { Component } from '@angular/core';
+import { AddMyCourseComponent } from '../add-my-course/add-my-course.component';
+import { Component, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // to get data from the route used to show this component
 import { BackendService } from '../backend.service'; // this component needs our backend service
-import { myCourses } from '../my-course.model'; // this component needs our User interface (model)
+import { myCourse } from '../my-course.model'; // this component needs our User interface (model)
 import { grades } from '../grades.model'; // this component needs our User interface (model)
+
 
 @Component({
   selector: 'app-my-courses',
@@ -12,8 +13,12 @@ import { grades } from '../grades.model'; // this component needs our User inter
 })
 export class MyCoursesComponent {
 
-    myCourses: myCourses[];
-    grades: grades[];
+  myCourses: myCourse[];
+  grades: grades[];
+
+
+  
+
     constructor(private backend: BackendService, private route: ActivatedRoute) {
 
       this.myCourses = []; // initially empty
@@ -31,7 +36,12 @@ export class MyCoursesComponent {
       })
     }
 
+    addCourse(course: myCourse) { // will be called when the add-user component emits a new user
 
+      //this.myCourses.push(course);
+      location.reload();
+      console.log("Course added!")   
+    }
     // createGradeOptions(grades:any) {
 	
     //   for (const val of grades)

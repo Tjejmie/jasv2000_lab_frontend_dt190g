@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // to get data from the route used to show this component
 import { BackendService } from '../backend.service'; // this component needs our backend service
-import { courses } from '../courses.model'; // this component needs our User interface (model)
+import { course } from '../courses.model'; // this component needs our User interface (model)
 
 @Component({
   selector: 'app-courses',
@@ -10,14 +10,12 @@ import { courses } from '../courses.model'; // this component needs our User int
 })
 export class CoursesComponent implements OnInit {
 
- courses: courses[];
+ courses: course[];
   
  constructor(private backend: BackendService, private route: ActivatedRoute) {
 
    this.courses = [];
  }
-
-
 
  ngOnInit(): void {
     this.backend.getCourses().subscribe(result => {
@@ -25,14 +23,4 @@ export class CoursesComponent implements OnInit {
   })
  }
 
-
-//  getCourses() {
-
-//    this.backend.getCourses()
-//      .then(courses => {
-
-//        this.courses = courses;
-//      })
-//      .catch(error => console.error(`An error occurred getting all users: ${error}`));
-//   }
 }

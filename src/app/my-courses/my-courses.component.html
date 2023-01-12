@@ -1,4 +1,5 @@
 <header>
+    
     <h1 class="center">Mina kurser</h1>
 
     <p>Detta är mina kurser:</p>
@@ -9,20 +10,10 @@
 </header>
 
 <main>
-    <div class="search-container">
-        <label>Sök kurs: <input type="text" id="search" placeholder="kurskod eller namn...">
-        </label>
-    </div>
-    <div class ="add-course">
-        <form class="add-course-form">
-            <label>Lägg till kurs: </label>
-            <input type="text" id="coursecode" placeholder="Kurskod">
-            <select id="grades"></select>
-            <span class="button add" id="addCourse">lägg till</span> <!-- available in the JS as addUser -->
-        </form>
+    <app-search-course></app-search-course>
 
-        
-    </div>
+    <app-add-my-course (newCourseEvent)="addCourse($event)"></app-add-my-course>
+    
     <table>
         <thead>
             <tr>
@@ -36,9 +27,11 @@
             <tr *ngFor="let myCourse of myCourses">
                 <td>{{myCourse.courseCode}}</td>
                 <td>{{myCourse.name}}</td>
+                <td>{{myCourse.grade}}</td>
+                
                 <td >
                     <select #grade (change)="changeGrade(myCourse.courseCode, grade.value.toUpperCase())" > 
-                        <option id="asd" *ngFor="let grade of grades" [selected]="grade ">
+                        <option *ngFor="let grade of grades" [selected]="myCourse.grade">
                             {{grade}}
                         </option>
                     </select>

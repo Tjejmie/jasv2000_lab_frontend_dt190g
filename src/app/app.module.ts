@@ -12,12 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 // In order to use forms (in our add-user component) we need the FormsModule
 import { FormsModule } from '@angular/forms';
+import { SearchCourseComponent } from './search-course/search-course.component';
+import { AddMyCourseComponent } from './add-my-course/add-my-course.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
-    MyCoursesComponent
+    MyCoursesComponent,
+    SearchCourseComponent,
+    AddMyCourseComponent
   ],
   imports: [
     BrowserModule,
