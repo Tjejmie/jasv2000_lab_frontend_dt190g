@@ -24,14 +24,16 @@
         </thead>
         <tbody id="courses_table">
             <tr *ngFor="let course of courses">
-                <ng-container *ngIf="searchText === '' || course.courseCode.includes(searchText.toUpperCase())">
+                
+                    <ng-container *ngIf="searchText === '' || course.name != null && course.name.includes(searchText) || course.courseCode.toLowerCase().includes(searchText) ">
+
                     <td>{{ course.courseCode }}</td>
                     <td>{{ course.name }}</td>
                     <td>{{ course.progression }}</td>
                     <td >{{ course.points }}</td>
                     <td>{{ course.institutionCode }}</td>
                     <td >{{ course.subject }}</td>
-                
+             
                 </ng-container>
             </tr>
 

@@ -3,7 +3,7 @@
  */
 export interface course {
   _id: string,
-  courseCode: string,
+  courseCode : string,
   subjectCode: string,
   level: string,
   progression: string, 

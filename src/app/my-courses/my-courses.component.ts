@@ -26,6 +26,7 @@ export class MyCoursesComponent implements OnInit {
       })
       this.backend.getGrades().subscribe(result => {
         this.grades = result;
+        
       })
     }
 

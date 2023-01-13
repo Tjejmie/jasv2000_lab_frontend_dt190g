@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; // to get data from the route used to show this component
-import { BackendService } from '../backend.service'; // this component needs our backend service
-import { course } from '../courses.model'; // this component needs our User interface (model)
+import { BackendService } from '../backend.service';
+import { course } from '../courses.model';
 
 @Component({
   selector: 'app-courses',
@@ -11,19 +10,20 @@ import { course } from '../courses.model'; // this component needs our User inte
 export class CoursesComponent implements OnInit {
 
  courses: course[];
+ searchCourse: course[];
 
- constructor(private backend: BackendService, private route: ActivatedRoute) {
+ constructor(private backend: BackendService) {
 
    this.courses = [];
+   this.searchCourse = [];
  }
 
  ngOnInit(): void {
     this.backend.getCourses().subscribe(result => {
       this.courses = result;
+      this.searchCourse = result;
   })
-  
  }
-
 
  searchText: string = '';
     onSearchTextEntered(searchValue: string){
