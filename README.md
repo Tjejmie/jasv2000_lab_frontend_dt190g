@@ -1,20 +1,27 @@
-# Miun Courses frontend
+# Jasv2000LabFrontendDt190g
 
-The solution for the miun-courses web app (frontend) in the Web Development with Javascript course (DT190G).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
-## Branches
+## Development server
 
-Before you start working on your solution of an laboration it's important that you create and check out a new branch. All branches must be named according to the format `labX` where `X` is replaced with the corresponding section number:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-0. Intro (JSON)
-1. Node.js
-2. MongoDB
-3. Angular 
+## Code scaffolding
 
-## Workflow
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Make sure you have checked out the correct lab branch. Make small commits regularly during development.
+## Build
 
-When you are done with the solution for a laboration, switch back to the master branch and merge all changes in the lab branch. This will make the master branch always contain the solution for the most recent laboration, still keeping the solution for all previous laborations.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-Do _not_ delete the lab branches! These will be used when your solution is assessed.
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

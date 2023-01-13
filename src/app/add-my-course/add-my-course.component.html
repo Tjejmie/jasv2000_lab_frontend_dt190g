@@ -1,0 +1,17 @@
+<div class ="add-course">
+    <form class="add-course-form">
+        <label>Lägg till kurs: </label>
+        <input [(ngModel)]="courseCode" name="courseCode" type="text" id="coursecode" placeholder="Kurskod">
+        <select [(ngModel)]="grade" name="grade" > 
+            <option value=""></option>
+            <option *ngFor="let grade of grades" >
+                {{grade}}
+            </option>
+        </select>
+        <button class="button add" id="addCourse" (click)="addCourse()" >
+            Lägg till
+        </button> 
+    </form>
+
+    
+</div>

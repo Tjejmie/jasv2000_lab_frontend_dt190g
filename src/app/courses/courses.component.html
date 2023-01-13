@@ -1,0 +1,49 @@
+<header>
+    <h1 class="center">Mittuniversitets kursutbud</h1>
+
+    <p>Följande kurser finns att läsa på Mittuniversitetet:</p>
+
+    <nav>
+        <a href="./my-courses">Mina kurser</a>
+    </nav>
+</header>
+
+<main>
+    <app-search-course (searchTextChanged)="onSearchTextEntered($event)"></app-search-course>
+    
+    <table>
+        <thead>
+            <tr>
+                <td>Kurskod</td>
+                <td class="course-name">Namn</td>
+                <td></td>
+                <td>hp</td>
+                <td>Instutition</td>
+                <td>Ämne</td>
+            </tr>
+        </thead>
+        <tbody id="courses_table">
+            <tr *ngFor="let course of courses">
+                
+                    <ng-container *ngIf="searchText === '' || course.name != null && course.name.includes(searchText) || course.courseCode.toLowerCase().includes(searchText) ">
+
+                    <td>{{ course.courseCode }}</td>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.progression }}</td>
+                    <td >{{ course.points }}</td>
+                    <td>{{ course.institutionCode }}</td>
+                    <td >{{ course.subject }}</td>
+             
+                </ng-container>
+            </tr>
+
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p class="center">
+        Denna sida läser data från filen
+        <a href="https://jasv2000-lab2-backend-dt190g.azurewebsites.net/api/courses" target="_blank">azurewebsites.net/api/courses</a>.
+    </p>
+</footer>
