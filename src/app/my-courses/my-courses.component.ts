@@ -1,29 +1,23 @@
-import { AddMyCourseComponent } from '../add-my-course/add-my-course.component';
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // to get data from the route used to show this component
 import { BackendService } from '../backend.service'; // this component needs our backend service
 import { myCourse } from '../my-course.model'; // this component needs our User interface (model)
 import { grades } from '../grades.model'; // this component needs our User interface (model)
-
 
 @Component({
   selector: 'app-my-courses',
   templateUrl: './my-courses.component.html',
   styleUrls: ['./my-courses.component.css']
 })
-export class MyCoursesComponent {
+
+export class MyCoursesComponent implements OnInit {
 
   myCourses: myCourse[];
-  grades: grades[];
-
-
-  
+  grades: any = []
 
     constructor(private backend: BackendService, private route: ActivatedRoute) {
-
       this.myCourses = []; // initially empty
       this.grades = []; // initially empty
-
     }
   
     ngOnInit(): void {
@@ -32,46 +26,25 @@ export class MyCoursesComponent {
       })
       this.backend.getGrades().subscribe(result => {
         this.grades = result;
-        
       })
     }
 
-    addCourse(course: myCourse) { // will be called when the add-user component emits a new user
+
+    searchText: string = '';
+
+    onSearchTextEntered(searchValue: string){
+      this.searchText = searchValue;
+      //console.log(this.searchText)
+    }
+
+
+    addCourse(course: myCourse) { 
 
       //this.myCourses.push(course);
       location.reload();
       console.log("Course added!")   
     }
-    // createGradeOptions(grades:any) {
-	
-    //   for (const val of grades)
-    //     {
-    //       const selectElement = document.getElementById("asd");
 
-    //       var option = document.createElement("option");
-    //         option.text = val.charAt(0).toUpperCase() + val.slice(1);
-    //         selectElement!.appendChild(option);
-    //         for(const myCourse of this.myCourses){
-    //           if(myCourse.grade == val){
-    //             var inputElement = <HTMLInputElement>document.getElementById('asd');
-    //             inputElement.value = val;
-      
-    //           }
-    //         }
-    //     }
-      
-    // }
-
-    // getMyCourses() {
-
-    //   this.backend.getMyCourses()
-    //     .then(myCourses => {
-   
-    //       this.myCourses = myCourses;
-    //     })
-    //     .catch(error => console.error(`An error occurred getting all users: ${error}`));
-    //  }
- 
     deleteCourse(courseCode : string){
       const test = this.myCourses.findIndex(x => x.courseCode == courseCode);
       this.myCourses.splice(test, 1);
@@ -86,5 +59,4 @@ export class MyCoursesComponent {
         console.log('Grade changed');
       })
     }
-  
 }

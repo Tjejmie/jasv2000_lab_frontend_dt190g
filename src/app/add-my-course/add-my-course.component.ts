@@ -42,7 +42,7 @@ export class AddMyCourseComponent implements OnInit {
   
         addCoursePromise
         .then(course => this.handleAddedCourse(course))
-        .catch(error => "Not possible to add course");
+        .catch(error => error="Not possible to add course");
     }
 
     private handleAddedCourse(course: myCourse) {

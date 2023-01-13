@@ -8,7 +8,7 @@ export interface course {
   level: string,
   progression: string, 
   name: string, 
-  points: Number, 
+  points: number, 
   institutionCode: string,
   subject: string, 
   }

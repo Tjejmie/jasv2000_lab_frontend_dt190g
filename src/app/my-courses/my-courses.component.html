@@ -10,7 +10,7 @@
 </header>
 
 <main>
-    <app-search-course></app-search-course>
+    <app-search-course (searchTextChanged)="onSearchTextEntered($event)"></app-search-course>
 
     <app-add-my-course (newCourseEvent)="addCourse($event)"></app-add-my-course>
     
@@ -23,15 +23,16 @@
                 <td></td>
             </tr>
         </thead>
-        <tbody id="courses_table" >
+        <tbody id="courses_table">
             <tr *ngFor="let myCourse of myCourses">
+                <ng-container *ngIf="searchText === '' || myCourse.name.toLowerCase().includes(searchText) || myCourse.courseCode.includes(searchText.toUpperCase())">
                 <td>{{myCourse.courseCode}}</td>
                 <td>{{myCourse.name}}</td>
-                <td>{{myCourse.grade}}</td>
+                <td></td>
                 
                 <td >
                     <select #grade (change)="changeGrade(myCourse.courseCode, grade.value.toUpperCase())" > 
-                        <option *ngFor="let grade of grades" [selected]="myCourse.grade">
+                        <option *ngFor="let grade of grades" [selected]="myCourse.grade == grade.toUpperCase()">
                             {{grade}}
                         </option>
                     </select>
@@ -41,7 +42,7 @@
                         Radera
                     </button>
                 </td>
-
+            </ng-container>
             </tr>
         </tbody>
     </table>

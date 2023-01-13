@@ -11,7 +11,7 @@ import { course } from '../courses.model'; // this component needs our User inte
 export class CoursesComponent implements OnInit {
 
  courses: course[];
-  
+
  constructor(private backend: BackendService, private route: ActivatedRoute) {
 
    this.courses = [];
@@ -19,8 +19,14 @@ export class CoursesComponent implements OnInit {
 
  ngOnInit(): void {
     this.backend.getCourses().subscribe(result => {
-    this.courses = result;
+      this.courses = result;
   })
+  
  }
 
+
+ searchText: string = '';
+    onSearchTextEntered(searchValue: string){
+      this.searchText = searchValue;
+    }
 }

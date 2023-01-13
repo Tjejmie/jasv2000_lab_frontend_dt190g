@@ -1,6 +1,6 @@
 export interface grades {
     name : string,
-    grades : string,
+    grades : Array<any>,
     descriptions : [{language : string, description : [string] }]
   }
   
