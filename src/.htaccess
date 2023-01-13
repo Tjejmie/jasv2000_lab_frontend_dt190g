@@ -8,5 +8,4 @@
     RewriteRule ^.*$ - [NC,L]
     # Redirect all non-file routes to index.html
     RewriteRule ^(?!.*\.).*$ index.html [NC,L]
-</IfModule>        
-        
+</IfModule>  
