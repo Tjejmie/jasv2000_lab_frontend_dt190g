@@ -16,7 +16,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class BackendService {
-  // URL to the REST API this application uses
+
   readonly API_URL = 'https://jasv2000-lab2-backend-dt190g.azurewebsites.net';
 
   constructor(private http: HttpClient) { }

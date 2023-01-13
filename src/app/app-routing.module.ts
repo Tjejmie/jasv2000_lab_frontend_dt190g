@@ -10,7 +10,6 @@ const routes: Routes = [{
 
 },
 {
-  // this is 'home page', it will display the users component (without admin tools)
   title: 'DT190G - Javascriptbaserad webbutveckling - HT22',
   path: '',
   component: CoursesComponent
